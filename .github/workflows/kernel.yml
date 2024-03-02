@@ -302,8 +302,10 @@ jobs:
           echo "🤔 PATH Variable: $PATH"
           export KBUILD_BUILD_HOST=Github-Action
           export KBUILD_BUILD_USER=$(echo ${{ github.actor }} | tr A-Z a-z)
+          git status
           make ${{ env.ARGS }} ${{ env.KERNEL_DEFCONFIG_PATH }}
           make ${{ env.ARGS }}
+          git status
           # tree ${{ env.OUT_DIR }}
 
       - name: 💛 Upload Image
